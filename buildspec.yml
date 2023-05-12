@@ -1,0 +1,17 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.9
+  build:
+    commands:
+      - echo Build started on `date`
+      - pip install -r requirements.txt
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - docker build -t flask-app .
+      - docker tag flask-app:latest 551729410521.dkr.ecr.us-east-1.amazonaws.com/flask-app:latest
+      - $(aws ecr get-login --no-include-email --region us-east-1)
+      - docker push 551729410521.dkr.ecr.us-east-1.amazonaws.com/flask-app:latest 
