@@ -1,6 +1,6 @@
 [
     {
-      "name": "flask-app",
+      "name": "DevCluster",
       "imageUri": "551729410521.dkr.ecr.us-east-1.amazonaws.com/flask-app:latest",
       "taskDefinitionArn": "arn:aws:ecs:us-east-1:551729410521:task-definition/DevFlaskTaskDef:1"
     }
