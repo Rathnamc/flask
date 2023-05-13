@@ -1,6 +1,5 @@
 version: 0.2
 
-
 env:
   variables:
     REPOSITORY_URI: "551729410521.dkr.ecr.us-east-1.amazonaws.com/flask-app"
@@ -28,5 +27,10 @@ phases:
       - echo Pushing the Docker image...
       - docker push $REPOSITORY_URI:latest
       - docker push $REPOSITORY_URI:$IMAGE_TAG
+
+artifacts:
+  files:
+    - '**/*'
+  name: FlaskAppBuildOutput
 
 
